@@ -1,4 +1,7 @@
 <?php
+
+//require_once '../../Config/config.php';
+
 class Database
 {
     private $host;
@@ -10,12 +13,11 @@ class Database
     public function __construct()
     {
         $this->host     = constant('HOST');
-        $this->db       = constant('calculadora_db');
+        $this->db       = constant('DB');
         $this->user     = constant('USER');
         $this->password = constant('PASSWORD');
         $this->charset  = constant('CHARSET');
     }
-
 
     public function conect()
     {

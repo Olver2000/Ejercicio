@@ -1,16 +1,16 @@
 <?php
 
+
 define('URL', 'http://localhost/Ejercicio');
 
-const DB_HOSTT = "localhost";
-const DB_NAME = "calculadora_db";
-const DB_USER = "root";
-const DB_PASSWORD = "";
-const DB_CHARSET = "utf8";
+define('DIR', dirname(__FILE__));
 
-const BASE_URL = "http://localhost/Ejercicio/models/calculadora2.php";
-
-
+//Parámetros para la base de datos
+define('HOST', 'localhost');
+define('DB', 'calculadora_db');
+define('USER', 'root');
+define('PASSWORD', 'root');
+define('CHARSET', 'utf8mb4');
 
 
 ?>
