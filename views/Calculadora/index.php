@@ -27,12 +27,12 @@ $registros = $data->getAll();
         <form action="../../Controllers/calculadoraController.php" method="POST">
           <input type="hidden" name="c" value="1">
           <div class="mb-3">
-            <label for="num1" class="form-label">Número Uno</label>
-            <input type="number" class="form-control" id="num1" name="num1">
+            <label for="num_uno" class="form-label">Número Uno</label>
+            <input type="number" class="form-control" id="num_uno" name="num_uno">
           </div>
           <div class="mb-3">
-            <label for="num2" class="form-label">Número Dos</label>
-            <input type="number" class="form-control" id="num2" name="num2">
+            <label for="num_dos" class="form-label">Número Dos</label>
+            <input type="number" class="form-control" id="num_dos" name="num_dos">
           </div>
           <div class="mb-3">
             <label for="operacion" class="form-label">Operación</label>
@@ -49,53 +49,53 @@ $registros = $data->getAll();
         </form>
       </div>
     </div>
-  </div>
-  <div class="col-3"></div>
+    <div class="col-3"></div>
 
 
-  <h3>Resultados de las Operaciones</h3>
+    <h3>Resultados de las Operaciones</h3>
 
-  <table class="table table-sm table-hover">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">Número Uno</th>
-        <th scope="col">Número Dos</th>
-        <th scope="col">Operación</th>
-        <th scope="col">Resultado</th>
-        <th scope="col" colspan="2">Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      if ($registros) {
-        foreach ($registros as $row) {
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Número Uno</th>
+          <th scope="col">Número Dos</th>
+          <th scope="col">Operación</th>
+          <th scope="col">Resultado</th>
+          <th scope="col" colspan="2">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        if ($registros) {
+          foreach ($registros as $row) {
 
-      ?>
-          <tr class="text-center">
-            <td><?= $row->num1 ?></td>
-            <td><?= $row->num2 ?></td>
-            <td><?= $row->operacion ?></td>
-            <td><?= $row->resultado ?></td>
-            <td>
-              <a class="btn btn-outline-warning btn-sm" href="<?= $row->getAll()?>">Actualizar</a>
-            </td>
-            <td>
-              <a class="btn btn-outline-danger btn-sm" href="<?= $row->getAll()?>">Eliminar</a>
-            </td>
+        ?>
+            <tr class="text-center">
+              <td><?= $row->num_uno ?></td>
+              <td><?= $row->num_dos ?></td>
+              <td><?= $row->operacion ?></td>
+              <td><?= $row->resultado ?></td>
+              <td>
+                <a class="btn btn-outline-warning btn-sm" href="../../Controllers/CalculadoraController.php?c=2&id=<?= $row->getId() ?>">Actualizar</a>
+              </td>
+              <td>
+                <a class="btn btn-outline-danger btn-sm" href="../../controllers/calculadoraController.php?c=4&id=<?= $row->getId() ?>">Eliminar</a>
+              </td>
+            </tr>
+          <?php
+          }
+        } else {
+          ?>
+          <tr class=" text-center">
+            <td colspan="6">Sin datos</td>
           </tr>
         <?php
         }
-      } else {
         ?>
-        <tr class=" text-center">
-          <td colspan="6">Sin datos</td>
-        </tr>
-      <?php
-      }
-      ?>
-    </tbody>
+      </tbody>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  </div>
 </body>
 
 </html>
